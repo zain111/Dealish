@@ -1,0 +1,59 @@
+/* Empty. Add your own CSS if you like */
+.pane {
+    background-image: url(../img/logo.jpg); 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+}
+.scroll-content{
+    background: url("../img/logo2.jpg") no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+
+}
+
+label#rounded{border-radius:15px; }
+
+
+.round-corner .item:first-child {
+  border-top-left-radius: 15px !important;
+  border-top-right-radius: 15px !important;
+}
+
+.round-corner .item:last-child {
+  border-bottom-left-radius: 8px !important;
+  border-bottom-right-radius: 8px !important;
+}
+
+.keyboard-open .has-footer{ 
+bottom: 0;
+}
+
+.card {
+    /*background:#FFF;
+    border:1px solid #AAA;
+    border-bottom:3px solid #BBB;
+    padding:0px;
+    margin:15px;
+    overflow:visible;*/
+
+/*      display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 100%;*/
+}
+
+#map {
+    height: 100%;
+    width: 100%;
+}
+ .scroll {
+    height: 100%;
+        }

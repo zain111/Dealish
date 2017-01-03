@@ -1,0 +1,98 @@
+<!-- <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>  -->
+
+<!-- ngMessages -->
+<!-- script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular-messages.js"></script>-->
+
+<ion-view title="Signup">
+ <ion-nav-back-button side="left" class="button-icon icon ion-arrow-left-c"></ion-nav-back-button>
+    <ion-content padding="'true'" scroll="true" class="has-header">
+
+    <form name="Form" class="elegant-aero">
+
+                   
+
+      <label class="item item-input">
+          <span class="input-label">Username</span>
+          <input type="text" name="username" ng-model="data.username" required />
+      </label>
+              <div ng-messages="Form.username.$error">
+                <div ng-message="required">*This field is required</div>
+              </div>
+
+      <label class="item item-input">
+          <span class="input-label">Email Address</span>
+          <input type="email" name="email" ng-model="data.email" required />
+      </label>
+              <div ng-messages="Form.email.$error">
+              <div ng-message="required">*This field is required</div>
+                <div ng-message="email">*Your email address is invalid</div>
+              </div>
+
+      <label class="item item-input">
+          <span class="input-label">Password</span>
+          <input type="password" name="password" ng-model="data.password" required />
+        </label>
+              <div ng-messages="Form.password.$error">
+                <div ng-message="required">*This field is required</div>
+              </div>
+
+     <label class="item item-input">
+         <span class="input-label">Phone Number</span>
+         <!-- ng-pattern to make sure that inthis case user only input number -->
+         <input type="number" name="phone" ng-model="data.phone" ng-pattern="/^(\d)+$/" required/>
+      </label>
+              <div ng-messages="Form.phone.$error">
+                <div ng-message="required">*This field is required</div>
+                <div ng-message="pattern">*only number</div>
+              </div>
+
+        <label class="item item-input">
+          <span class="input-label">Address</span>
+          <input type="text" name="address" ng-model="data.address" required />
+        </label>
+              <div ng-messages="Form.address.$error">
+                <div ng-message="required">*This field is required</div>
+              </div>
+
+<button ng-click="signup(data)" ng-disabled="Form.$invalid" class="button button-dark button-block ">Sign up</button>
+      
+
+     
+</ion-content>
+</ion-view>
+
+    
+
+<!--
+<ion-view title="Signup">
+    <ion-content padding="'true'" scroll="false" class="has-header">
+
+        <form  name="form" class="list" >
+
+            <ion-list>                
+                <label class="item item-input" >
+                    <span class="input-label">Username</span>
+                    <input type="text" placeholder="" ng-model="data.username">
+                </label>
+                <label class="item item-input">
+                    <span class="input-label">Email</span>
+                    <input type="email" placeholder="" ng-model="data.email">
+                </label>
+                <label class="item item-input">
+                    <span class="input-label">Password</span>
+                    <input type="password" placeholder="" ng-model="data.password">
+                </label>
+                <label class="item item-input">
+                    <span class="input-label">Phone</span>
+                    <input type="number" placeholder="" ng-model="data.phone">
+                </label>
+                <label class="item item-input">
+                    <span class="input-label">Address</span>
+                    <input type="text" placeholder="" ng-model="data.address">
+                </label>
+            </ion-list>
+               <button ng-click="signup(data)" class="button button-calm button-block ">Sign up</button>
+        
+       </form>   
+    </ion-content>
+</ion-view> -->

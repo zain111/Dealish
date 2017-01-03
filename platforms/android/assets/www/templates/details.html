@@ -1,0 +1,18 @@
+<ion-view title="Details">
+  <ion-content padding="'false'" class="has-header">
+  
+    <div class="card card-inverse" style="background-color: #F9F4CA; border-color: #333;" ng-repeat="x in names ">
+      <img class="card-img-top full-image" src={{x.p_image_id}} alt="Card image cap" >
+        <div class="card-block">
+          <h4 class="card-title">{{ x.p_name }}</h4>
+          <p class="card-text"><b>valid until:</b>{{ x.p_period }}</p>
+          <p class="card-text"><b>Description:</b>{{ x.p_description }}</p>
+          <p class="card-text"><b>Address:</b>{{ x.p_location }}</p>
+          <p class="card-text"><b>Category</b>{{ x.p_category }}</p>
+          <div class="button-bar button-positive button-block">
+            <a href="{{x.p_latlong}}" class="button button-dark button-block">Go there</a>
+          </div>
+        </div>
+    </div>
+  </ion-content>
+</ion-view>

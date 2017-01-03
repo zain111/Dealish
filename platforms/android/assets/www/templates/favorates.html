@@ -1,0 +1,189 @@
+<!-- <ion-view title="Favorites"> -->
+    <!-- <ion-content padding="'true'" class="has-header"></ion-content> -->
+      <ion-view title="Search">
+
+  <ion-nav-bar class="bar-balanced" align-title="center">
+    <ion-nav-back-button class="button-clear">
+      <i class="on-ios-arrow-back"></i>
+    </ion-nav-back-button>
+  </ion-nav-bar>
+
+  <ion-content>
+
+    <ion-item>
+      <div class="item-toggle">
+         Nearby
+         <label class="toggle toggle-balanced">
+           <input type="checkbox" ng-model="nearbyData.data">
+           <div class="track">
+             <div class="handle"></div>
+           </div>
+         </label>
+      </div>
+    </ion-item>
+
+    <ion-item class="select-item">
+      <label class="item item-input item-select">
+        <div class="input-label" style="display:block;">
+          State 
+        </div>
+        <!-- <div style="text-align:right"> -->
+          <div class="modal-select">
+            <!-- <div class="button"> -->
+              <button class="button button-clear button-dark" ng-disabled="nearbyData.data" ng-click="openStates()">{{statesData.data}}</button>
+            <!-- </div>             -->
+          </div>
+      </label>
+
+      <label class="item item-input item-select" >
+        <div class="input-label" style="display:block;">
+          City
+        </div>
+        <div class="modal-select">
+            <!-- <div class="button"> -->
+              <button class="button button-clear button-dark" ng-disabled="nearbyData.data" ng-click="openCity()">{{cityData.data}}</button>
+            <!-- </div>             -->
+          </div>
+      </label>
+      
+      <label class="item item-input item-select" >
+        <div class="input-label" style="display:block;">
+          Meal
+        </div>
+        <div class="modal-select">
+            <!-- <div class="button"> -->
+              <button class="button button-clear button-dark" ng-click="openMeal()">{{mealData.data}}</button>
+            <!-- </div>             -->
+          </div><!-- 
+        <select>
+          <option selected> </option>
+          <option>Breakfast</option>
+          <option>Lunch</option>
+          <option>Hi-Tea</option>
+          <option>Dinner</option>
+          <option>Supper</option>
+        </select> -->
+      </label>
+
+      <label class="item item-input item-select" >
+        <div class="input-label" style="display:block;">
+          Cuisine
+        </div>
+        </div>
+        <!-- <div style="text-align:right"> -->
+          <div class="modal-select">
+            <!-- <div class="button"> -->
+              <button class="button button-clear button-dark" ng-click="openCuisine()">{{cuisineData.data}}</button>
+            <!-- </div>             -->
+          </div>
+      </label>
+      <label class="item-input item-stacked-label">
+        <span class="input-label" style="width:100%;">Food Preference</span>
+        <input auto-complete ui-items="foodList" ng-model="preferenceData.data" placeholder="Your desired food">        
+      </label>
+    </ion-item>
+   <!--  <ion-item>
+      
+    </ion-item>  -->
+    <ion-item>
+      <div class="item-toggle">
+         Halal
+         <label class="toggle toggle-balanced">
+           <input type="checkbox" ng-model="halal.data">
+           <div class="track">
+             <div class="handle"></div>
+           </div>
+         </label>
+      </div>
+    </ion-item>
+
+   <ion-item>
+        
+        <div style="width:100%; text-align:right; padding-right:0px;">
+          <div class="input-label" style="display: -webkit-inline-box;float: left;padding-top: 12px;">
+          Price
+        </div>
+            <button class="button button-outline button-balanced" ng-class="{'active': isActive}" ng-click="activeButton()" type="button">$</button> 
+            <button class="button button-outline button-balanced" ng-class="{'active': isActive2}" ng-click="activeButton2()" type="button">$$</button>
+
+            <button class="button button-outline button-balanced" ng-class="{'active': isActive3}" ng-click="activeButton3()" type="button">$$$</button>
+        </div>
+  </ion-item>
+
+
+  <script id="modal.html" type="text/ng-template">
+    <div class="modal" ng-controller="ModalCtrl">
+        <ion-header-bar class="bar bar-header bar-balanced">
+          <h1 class="title">Select State</h1>
+          <button class="button button-clear button-primary" ng-click="hideModal()">Cancel</button>
+        </ion-header-bar>
+        <ion-content>
+          <div class="list">
+            <ion-item ng-model="statesData.data" ng-repeat="item in states" ng-click="doSelectStates(item)">
+              {{item}}
+            </ion-item>
+          </div>
+        </ion-content>
+    </div>
+  </script>
+
+  <script id="city.html" type="text/ng-template">
+    <div class="modal" ng-controller="ModalCtrl">
+        <ion-header-bar class="bar bar-header bar-balanced">
+          <h1 class="title">Select City</h1>
+          <button class="button button-clear button-primary" ng-click="hideModal()">Cancel</button>
+        </ion-header-bar>
+        <ion-content>
+          <div class="list">
+            <ion-item ng-model="cityData.data" ng-repeat="item in selectedStatesCities" ng-click="doSelectCity(item)">
+              {{item}}
+            </ion-item>
+          </div>
+        </ion-content>
+    </div>
+  </script>
+
+  <script id="meal.html" type="text/ng-template">
+    <div class="modal" ng-controller="ModalCtrl">
+        <ion-header-bar class="bar bar-header bar-balanced">
+          <h1 class="title">Select Type of Meal</h1>
+          <button class="button button-clear button-primary" ng-click="hideModal()">Cancel</button>
+        </ion-header-bar>
+        <ion-content>
+          <div class="list">
+            <ion-item ng-model="modalData.data" ng-repeat="item in meal" ng-click="doSelectMeal(item)">
+              {{item}}
+            </ion-item>
+          </div>
+        </ion-content>
+    </div>
+  </script>
+
+  <script id="cuisine.html" type="text/ng-template">
+    <div class="modal" ng-controller="ModalCtrl">
+        <ion-header-bar class="bar bar-header bar-balanced">
+          <h1 class="title">Select Type of Meal</h1>
+          <button class="button button-clear button-primary" ng-click="hideModal()">Cancel</button>
+        </ion-header-bar>
+        <ion-content>
+          <div class="list">
+            <ion-item ng-model="modalData.data" ng-repeat="item in cuisine" ng-click="doSelectCuisine(item)">
+              {{item}}
+            </ion-item>
+          </div>
+        </ion-content>
+    </div>
+  </script>
+
+    <div class="search" align="center">
+      <a class="button icon-left ion-search button-balanced" align-title="center" ng-click="search()" ui-sref="menu.findRestaurant">Search</a>
+    </div> 
+
+  </ion-content>
+</ion-view>
+    
+    
+    
+
+
+<!-- </ion-view> -->

@@ -1,0 +1,21 @@
+<ion-view title="Promotion">
+    <ion-content padding="'true'" class="has-header">
+        
+<div style="background-color: #F9F4CA; border-color: #333">
+<ion-list>
+    <ion-item ng-repeat='x in names' class="item-thumbnail-left item-icon-right" ng-href="#/page14/{{x.p_id}}" >
+        <img ng-src="{{x.p_image_id}}" alt=" {{x.p_names}}">
+        <h2> {{x.p_name}} </h2>
+        <h3> {{x.p_location}} </h3>
+        <p> {{x.p_description }} </p>
+        <!-- <button class="button button-clear icon ion-star button-assertive" ng-click="toggleStar(item)" ng-show="item.star"></button>
+        <ion-option-button class="button-dark" ng-click="toggleStar(item)">
+            <i class="icon ion-star"></i>
+        </ion-option-button>
+
+        <ion-reorder-button class="ion-navicon" on-reorder= "moveItem(item, $fromIndex, $toIndex)"></ion-reorder-button> -->
+      </ion-item>
+  </ion-list>
+</div>
+    </ion-content>
+</ion-view>

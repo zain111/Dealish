@@ -1,0 +1,78 @@
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script> 
+
+<!-- ngMessages -->
+<!-- script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular-messages.js"></script>-->
+
+<ion-view title="Add Restaurant">
+    <ion-content padding="'true'" scroll="true" class="has-header">
+
+    <form name="Form" class="elegant-aero">
+
+                   
+
+      <label class="item item-input">
+          <span class="input-label">Restaurant name</span>
+          <input type="text" name="res_name" ng-model="data.res_name" required />
+      </label>
+              <div ng-messages="Form.res_name.$error">
+                <div ng-message="required">*This field is required</div>
+              </div>
+
+      <label class="item item-input">
+          <span class="input-label">Address</span>
+          <input type="text" name="address" ng-model="data.res_address" required />
+        </label>
+              <div ng-messages="Form.address.$error">
+                <div ng-message="required">*This field is required</div>
+              </div>
+
+     <label class="item item-input">
+         <span class="input-label">Postal Code</span>
+         <!-- ng-pattern to make sure that inthis case user only input number -->
+         <input type="number" name="res_postal" ng-model="data.res_postal" ng-pattern="/^(\d)+$/" required/>
+      </label>
+              <div ng-messages="Form.res_postal.$error">
+                <div ng-message="required">*This field is required</div>
+                <div ng-message="pattern">*only number</div>
+              </div>
+
+      <label class="item item-input">
+          <span class="input-label">City</span>
+          <input type="text" name="res_city" ng-model="data.res_city" required />
+        </label>
+              <div ng-messages="Form.res_city.$error">
+                <div ng-message="required">*This field is required</div>
+              </div>
+
+       <label class="item item-input">
+          <span class="input-label">State</span>
+          <input type="text" name="res_state" ng-model="data.res_state" required />
+        </label>
+              <div ng-messages="Form.res_state.$error">
+                <div ng-message="required">*This field is required</div>
+              </div>
+
+     <label class="item item-input">
+         <span class="input-label">Phone Number</span>
+         <!-- ng-pattern to make sure that inthis case user only input number -->
+         <input type="number" name="res_phone" ng-model="data.res_phone" ng-pattern="/^(\d)+$/" required/>
+      </label>
+              <div ng-messages="Form.res_phone.$error">
+                <div ng-message="required">*This field is required</div>
+                <div ng-message="pattern">*only number</div>
+              </div>
+
+        
+
+<button ng-click="signup2(data)" ng-disabled="Form.$invalid" class="button button-dark button-block ">Add Restaurant</button>
+      
+
+     
+</ion-content>
+</ion-view>
+
+
+
+
+    
+
